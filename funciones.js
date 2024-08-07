@@ -74,6 +74,25 @@ document.getElementById('operando').addEventListener('keydown', (event) => {
     event.preventDefault();
 });
 
+function preventKeyboard() {
+    const input = document.getElementById('operando');
+    input.addEventListener('focus', (event) => {
+        event.target.blur(); 
+        event.target.removeAttribute('readonly');
+    });
+
+    input.addEventListener('touchstart', (event) => {
+        event.preventDefault(); 
+        event.target.focus(); 
+    });
+    
+    input.addEventListener('keydown', (event) => {
+        event.preventDefault();
+    });
+}
+
+preventKeyboard();
+
 window.onload = function() {
     document.getElementById('operando').focus();
 };
