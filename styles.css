@@ -1,0 +1,145 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3 {
+    margin-left: 25px;
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.calculadora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
+    width: 330px;
+    background-color: rgb(98, 153, 225);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px;
+}
+
+.container {
+    height: 470px;
+    width: 320px;
+    border: 2px solid rgb(134, 211, 238);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.casio {
+    height: 50px;
+}
+
+.inputArea {
+    margin: 0px 20px;
+    height: 80px;
+    width: calc(100% - 40px);
+    border-radius: 5px;
+    padding: 0;
+    background-color: rgb(194, 206, 195);
+    box-shadow: 1px 1px 10px 8px rgb(105, 109, 106);
+}
+
+.forma {
+    height: 50%;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.inputControl {
+    height: 100%;
+    width: calc(100% - 20px);
+    border: none;
+    background: none;
+    margin: 20px 10px;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-size:x-large;
+    outline: none;
+    caret-color: black;
+    letter-spacing: 2px;
+}
+
+.buttons-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    background-color: rgb(123, 176, 245);;
+    border: 2px solid rgb(134, 211, 238);
+    border-radius: 15px 15px 5px 5px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 40px repeat(5, 1fr);
+    row-gap: 0;
+    column-gap: 0;
+    margin: 12px 20px
+}
+
+.btn {
+    border-radius: 10px;
+    height: 35px;
+    width: 50px;
+    font-size: 20px;
+    margin: 5px;
+    letter-spacing: 1px;
+    box-shadow: 1px 1px;
+}
+
+.btn-small {
+    border-radius: 10px;
+    height: 30px;
+    width: 50px;
+    font-size: 20px;
+    margin: 5px 5px 0px 5px;
+    box-shadow: 1px 1px;
+}
+
+.btn-hms {
+    font-family: "Inconsolata", monospace;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.btn-root {
+    font-family: "Nanum Gothic Coding", monospace;
+    font-size: large;
+    font-weight: bold;
+}
+
+.btn-tax {
+    font-family: "Mulish", sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+
+.btn-equal {
+    grid-row: span 2;
+    height: 80px;
+}
+
+.btn-dot {
+    font-weight: 900;
+}
+
+.btn-del {
+    background-color: rgb(133, 182, 197);
+}
