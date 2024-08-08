@@ -69,7 +69,7 @@ document.getElementById('operando').addEventListener('focus', (event) => {
 });
 
 document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('touchstart', (event) => {
+    button.addEventListener('touchend', (event) => {
         event.preventDefault();
         focusInput();
     });
