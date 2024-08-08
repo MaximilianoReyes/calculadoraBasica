@@ -4,6 +4,7 @@ function appendToInput(value) {
     const startPos = input.selectionStart;
     if (['+', '-', '*', '/', '%'].includes(lastValue) && ['+', '-', '*', '/', '%'].includes(value)) {
         input.value = input.value.slice(0, -1) + value;
+        input.setSelectionRange(input.value.length, input.value.length);
     } else {
         input.value = input.value.slice(0, startPos) + value + input.value.slice(startPos);
         const newPos = startPos + value.length;
@@ -22,6 +23,7 @@ function calculateResult() {
     } catch (error) {
         input.value = "Error"
     }
+    focusInput()
 }
 
 function deleteLastChar() {
@@ -66,34 +68,15 @@ document.getElementById('operando').addEventListener('focus', (event) => {
     event.target.removeAttribute('readonly');
 });
 
-document.getElementById('operando').addEventListener('blur', (event) => {
-    event.target.setAttribute('readonly', true);
+document.getElementById('operando').addEventListener('touchstart', (event) => {
+    event.preventDefault();
 });
 
 document.getElementById('operando').addEventListener('keydown', (event) => {
     event.preventDefault();
 });
 
-function preventKeyboard() {
-    const input = document.getElementById('operando');
-    input.addEventListener('focus', (event) => {
-        event.target.blur(); 
-        event.target.removeAttribute('readonly');
-    });
-
-    input.addEventListener('touchstart', (event) => {
-        event.preventDefault(); 
-        event.target.focus(); 
-    });
-    
-    input.addEventListener('keydown', (event) => {
-        event.preventDefault();
-    });
-}
-
-preventKeyboard();
-
 window.onload = function() {
-    document.getElementById('operando').focus();
+    focusInput()
 };
 
