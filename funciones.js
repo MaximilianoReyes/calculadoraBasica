@@ -69,9 +69,14 @@ document.getElementById('operando').addEventListener('focus', (event) => {
 });
 
 document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('touchend', (event) => {
+    button.addEventListener('touchstart', (event) => {
         event.preventDefault();
+        focusInput();
     });
+});
+
+document.getElementById('operando').addEventListener('blur', (event) => {
+    event.target.setAttribute('readonly', true);
 });
 
 document.getElementById('operando').addEventListener('keydown', (event) => {
