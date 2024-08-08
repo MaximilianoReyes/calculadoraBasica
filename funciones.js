@@ -1,6 +1,5 @@
 function appendToInput(value) {
     const input = document.getElementById('operando')
-    input.readOnly = false;
     const lastValue = input.value.slice(-1)
     const startPos = input.selectionStart;
     if (['+', '-', '*', '/', '%'].includes(lastValue) && ['+', '-', '*', '/', '%'].includes(value)) {
@@ -11,13 +10,11 @@ function appendToInput(value) {
         const newPos = startPos + value.length;
         input.setSelectionRange(newPos, newPos);
     }
-    input.readOnly = true;
     focusInput()
 }
 
 function calculateResult() {
     const input = document.getElementById('operando');
-    input.readOnly = false;
     let expression = input.value;
     expression = expression.replace(/√(\d+(\.\d+)?)/g, 'Math.sqrt($1)');
     try {
@@ -26,48 +23,39 @@ function calculateResult() {
     } catch (error) {
         input.value = "Error"
     }
-    input.readOnly = true;
     focusInput()
 }
 
 function deleteLastChar() {
     const input = document.getElementById('operando');
-    input.readOnly = false;
     const startPos = input.selectionStart;
     if (startPos > 0) {
         input.value = input.value.slice(0, startPos - 1) + input.value.slice(startPos);
         input.setSelectionRange(startPos - 1, startPos - 1);
     }
-    input.readOnly = true;
     focusInput()
 }
 
 function clearInput() {
     const input = document.getElementById('operando');
-    input.readOnly = false;
     input.value = '';
-    input.readOnly = true;
     focusInput()
 }
 
 function moveCaretForward() {
     const input = document.getElementById('operando')
-    input.readOnly = false;
     const currentPosition = input.selectionStart
     if (currentPosition < input.value.length) {
         input.setSelectionRange(currentPosition + 1, currentPosition + 1)
-        input.readOnly = true;
         focusInput()
     }
 }
 
 function moveCaretBackward() {
     const input = document.getElementById('operando')
-    input.readOnly = false;
     const currentPosition = input.selectionStart
     if (currentPosition > 0) {
         input.setSelectionRange(currentPosition - 1, currentPosition - 1)
-        input.readOnly = true;
         focusInput()
     }
 }
