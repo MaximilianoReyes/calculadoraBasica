@@ -71,7 +71,6 @@ document.getElementById('operando').addEventListener('focus', (event) => {
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('touchend', (event) => {
         event.preventDefault();
-        focusInput();
     });
 });
 
