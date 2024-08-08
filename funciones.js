@@ -64,24 +64,24 @@ function focusInput() {
     document.getElementById('operando').focus();
 }
 
-document.getElementById('operando').addEventListener('focus', (event) => {
-    event.target.removeAttribute('readonly');
-});
-
-document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('touchstart', (event) => {
-        event.preventDefault();
-        focusInput();
+function preventKeyboard() {
+    const input = document.getElementById('operando');
+    input.addEventListener('focus', (event) => {
+        event.target.blur(); 
+        event.target.removeAttribute('readonly');
     });
-});
 
-document.getElementById('operando').addEventListener('blur', (event) => {
-    event.target.setAttribute('readonly', true);
-});
+    input.addEventListener('touchstart', (event) => {
+        event.preventDefault(); 
+        event.target.focus(); 
+    });
 
-document.getElementById('operando').addEventListener('keydown', (event) => {
-    event.preventDefault();
-});
+    input.addEventListener('keydown', (event) => {
+        event.preventDefault();
+    });
+}
+
+preventKeyboard();
 
 window.onload = function() {
     focusInput()
